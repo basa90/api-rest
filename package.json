@@ -1,0 +1,22 @@
+{
+  "name": "api-rest",
+  "version": "1.0.0",
+  "description": "Proyecto de API RESTful con Node.js y Express",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gabrielnz/api-rest.git"
+  },
+  "author": "Gabriel Nunez",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Gabrielnz/api-rest/issues"
+  },
+  "homepage": "https://github.com/Gabrielnz/api-rest#readme",
+  "dependencies": {
+    "express": "^4.15.0"
+  }
+}
