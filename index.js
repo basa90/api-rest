@@ -45,9 +45,6 @@ app.get('/api/product/:productId', (req, res) => {
 })
 
 app.post('/api/product', (req, res) => {
-	console.log('POST /api/product')
-	console.log(req.body)
-
 	let product = new Product()
 
 	product.name = req.body.name
@@ -58,7 +55,7 @@ app.post('/api/product', (req, res) => {
 
 	product.save()
 	.then((newProduct) => {
-		res.status(200).send({product: newProduct})
+		res.status(200).send({newProduct})
 	})
 	.catch((err) => {
 		return res.status(500).send({message: `Error al guardar en la base de datos: ${err}`})
@@ -67,11 +64,39 @@ app.post('/api/product', (req, res) => {
 
 
 app.put('/api/product/:productId', (req, res) => {
+	let productId = req.params.productId
+	let update = req.body
 
+	Product.findByIdAndUpdate(productId, update)
+	.then((updatedProduct) => {
+		if(!updatedProduct){
+			return res.status(404).send({message: `El producto no existe`})
+		}
+
+		res.status(200).send({updatedProduct})
+	})
+	.catch((err) => {
+		return res.status(500).send({message: `Error al actualizar: ${err}`})
+	})
 })
 
 app.delete('/api/product/:productId', (req, res) => {
+	let productId = req.params.productId
 
+	Product.findById(productId)
+	.then((product) => {
+		if(!product){
+			return res.status(404).send({message: `El producto no existe`})
+		}
+
+		return product.remove()
+	})
+	.then((deletedProduct) => {
+		res.status(200).send({deletedProduct})
+	})
+	.catch((err) => {
+		return res.status(500).send({message: `Error al eliminar: ${err}`})
+	})
 })
 
 mongoose.connect('mongodb://localhost:27017/shop')
