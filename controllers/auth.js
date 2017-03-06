@@ -24,7 +24,7 @@ function signUp (req, res) {
 	.then(() => {
 		mongoose.disconnect()
 	})
-	.catch((err) => {
+	.catch(err => {
 		return res.status(500).send({`Error al crear el usuario: ${err}`})
 	})
 }

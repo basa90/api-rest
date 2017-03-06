@@ -1,5 +1,6 @@
 'use strict'
 
+//middleware para comprobar la validez y la vigencia de la autorizacion del token
 const config = require('../config')
 const jwt = require('jwt-simple')
 const moment = require('moment')

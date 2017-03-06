@@ -1,5 +1,6 @@
 'use strict'
 
+//servicio para crear un token de seguridad
 const config = require('../config')
 const jwt = require('jwt-simple')
 const moment = require('moment')

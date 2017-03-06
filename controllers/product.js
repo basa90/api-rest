@@ -14,7 +14,7 @@ function getProduct (req, res) {
 
 		return Product.findById(productId)
 	})
-	.then((product) => {
+	.then(product => {
 		if(!product){
 			return res.status(404).send({message: `El producto no existe`})
 		}
@@ -24,7 +24,7 @@ function getProduct (req, res) {
 	.then(() => {
 		mongoose.disconnect()
 	})
-	.catch((err) => {
+	.catch(err => {
 		return res.status(500).send({message: `Error al realizar la peticion: ${err}`})
 	})
 }
@@ -35,7 +35,7 @@ function getProducts (req, res) {
 	.then(() => {
 		return Product.find({})
 	})
-	.then((products) => {
+	.then(products => {
 		if(!products){
 			return res.status(404).send({message: `No existen productos`})
 		}
@@ -45,7 +45,7 @@ function getProducts (req, res) {
 	.then(() => {
 		mongoose.disconnect()
 	})
-	.catch((err) => {
+	.catch(err => {
 		return res.status(500).send({message: `Error al realizar la peticion: ${err}`})
 	})
 }
@@ -64,13 +64,13 @@ function saveProduct (req, res) {
 
 		return product.save()
 	})
-	.then((newProduct) => {
+	.then(newProduct => {
 		res.status(200).send({newProduct})
 	})
 	.then(() => {
 		mongoose.disconnect()
 	})
-	.catch((err) => {
+	.catch(err => {
 		return res.status(500).send({message: `Error al guardar en la base de datos: ${err}`})
 	})
 }
@@ -84,7 +84,7 @@ function updateProduct (req, res) {
 
 		return Product.findByIdAndUpdate(productId, update)
 	})
-	.then((updatedProduct) => {
+	.then(updatedProduct => {
 		if(!updatedProduct){
 			return res.status(404).send({message: `El producto no existe`})
 		}
@@ -94,7 +94,7 @@ function updateProduct (req, res) {
 	.then(() => {
 		mongoose.disconnect()
 	})
-	.catch((err) => {
+	.catch(err => {
 		return res.status(500).send({message: `Error al actualizar: ${err}`})
 	})
 }
@@ -107,20 +107,20 @@ function deleteProduct (req, res) {
 
 		return Product.findById(productId)
 	})
-	.then((product) => {
+	.then(product => {
 		if(!product){
 			return res.status(404).send({message: `El producto no existe`})
 		}
 
 		return product.remove()
 	})
-	.then((deletedProduct) => {
+	.then(deletedProduct => {
 		res.status(200).send({deletedProduct})
 	})
 	.then(() => {
 		mongoose.disconnect()
 	})
-	.catch((err) => {
+	.catch(err => {
 		return res.status(500).send({message: `Error al eliminar: ${err}`})
 	})
 }

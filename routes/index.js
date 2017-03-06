@@ -1,5 +1,6 @@
 'use strict'
 
+//rutas de la app
 const express = require('express')
 const productCtrl = require('../controllers/product')
 const auth = require('../middlewares/auth')
