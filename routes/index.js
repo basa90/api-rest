@@ -5,8 +5,7 @@ const productCtrl = require('../controllers/product')
 const auth = require('../middlewares/auth')
 const api = express.Router()
 
-api.use(auth.isAuth)
-api.get('/private', function (req, res) {
+api.get('/private', auth.isAuth, function (req, res) {
 	res.status(200).send({message: 'Tienes acceso'})
 })
 api.get('/product', productCtrl.getProducts)
