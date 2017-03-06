@@ -2,7 +2,7 @@
 
 const Product = require('../models/product')
 
-function getProduct(req, res) {
+function getProduct (req, res) {
 	let productId = req.params.productId
 
 	Product.findById(productId)
@@ -18,7 +18,7 @@ function getProduct(req, res) {
 	})
 }
 
-function getProducts(req, res) {
+function getProducts (req, res) {
 	Product.find({})
 	.then((products) => {
 		if(!products){
@@ -32,7 +32,7 @@ function getProducts(req, res) {
 	})
 }
 
-function saveProduct(req, res) {
+function saveProduct (req, res) {
 	let product = new Product()
 
 	product.name = req.body.name
@@ -50,7 +50,7 @@ function saveProduct(req, res) {
 	})
 }
 
-function updateProduct(req, res) {
+function updateProduct (req, res) {
 	let productId = req.params.productId
 	let update = req.body
 
@@ -67,7 +67,7 @@ function updateProduct(req, res) {
 	})
 }
 
-function deleteProduct(req, res) {
+function deleteProduct (req, res) {
 	let productId = req.params.productId
 
 	Product.findById(productId)
