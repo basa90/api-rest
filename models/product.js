@@ -1,6 +1,8 @@
 'use strict'
 
-const mongoose = require('mongoose')
+let mongoose = require('mongoose')
+//estableciendo bluebird como el proveedor de promises de mongoose
+mongoose.Promise = require('bluebird')
 const Schema = mongoose.Schema
 
 const ProductSchema = Schema({

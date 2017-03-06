@@ -18,8 +18,10 @@
   },
   "homepage": "https://github.com/Gabrielnz/api-rest#readme",
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
     "bluebird": "^3.5.0",
     "body-parser": "^1.17.0",
+    "crypto": "0.0.3",
     "express": "^4.15.0",
     "mongoose": "^4.8.5"
   },
