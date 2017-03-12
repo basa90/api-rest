@@ -1,7 +1,7 @@
-[![Standard - JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](http://standardjs.com/)
-
 # api-rest
 RESTful API, using Node.js, Express and MongoDB.
+
+[![Standard - JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](http://standardjs.com/)
 
 ### Prerequisites
 
