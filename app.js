@@ -1,6 +1,6 @@
 'use strict'
 
-//configuraciones de la app
+// configuraciones de la app
 const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()

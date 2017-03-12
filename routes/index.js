@@ -1,13 +1,13 @@
 'use strict'
 
-//rutas de la app
+// rutas de la app
 const express = require('express')
 const productCtrl = require('../controllers/product')
 const auth = require('../middlewares/auth')
 const api = express.Router()
 
 api.get('/private', auth.isAuth, function (req, res) {
-	res.status(200).send({message: 'Tienes acceso'})
+  res.status(200).send({message: 'Tienes acceso'})
 })
 api.get('/product', productCtrl.getProducts)
 api.get('/product/:productId', productCtrl.getProduct)
